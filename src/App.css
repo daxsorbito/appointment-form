@@ -1,38 +1,473 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: lightsalmon;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App__header {
+  height: 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App__content {
+  background: white;
+  padding: 24px;
+  border-radius: 4px;
+  border: 1px solid black;
+  box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.App__main {
+  overflow: auto;
+}
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  border-radius: 4px;
+}
+
+.Modal--purple {
+  top: 25px;
+  border: 3px solid rebeccapurple;
+}
+
+.Modal--lime {
+  bottom: 25px;
+  border: 3px solid limegreen;
+}
+
+/* 02-use-effect */
+.WeatherDisplay ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+}
+
+.WeatherDisplay li {
+  margin: 0 4px 12px 4px;
+}
+
+.WeatherDisplay li button {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  font-weight: bold;
+  min-width: 120px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.WeatherDisplay__data-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.WeatherDisplay__data-row li {
+  /* background: white; */
+  border: 1px solid black;
+  /* color: black; */
+  border-radius: 4px;
+  padding: 12px 8px;
+}
+
+.WeatherDisplay__data-row li span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.active {
+  background: #0a3666;
+  color: white;
+}
+
+/* 01-use-state */
+
+.Cart {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.CartItem {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.CartItem__btn {
+  background: white;
+  border: 1px solid black;
+  cursor: pointer;
+  font-weight: bold;
+  height: 24px;
+  padding: 0;
+  width: 24px;
+}
+
+.CartItem__btn:hover {
+  background: orange;
+  color: white;
+}
+
+.CartItem__input {
+  height: 24px;
+  margin: 0 4px;
+  max-width: 36px;
+  padding: 0;
+  text-align: center;
+}
+
+.Cart__total {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Cart__total-label {
+  font-size: 14px;
+  padding: 8px;
+  text-align: center;
+}
+
+.SearchInput {
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  display: flex;
+  min-width: 320px;
+  padding: 8px;
+  transition: all 100ms ease-in;
+}
+
+.SearchInput.focused {
+  border: 1px solid black;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.SearchInput__input {
+  border: none;
+  font-size: 24px;
+  height: 32px;
+  width: 100%;
+}
+
+.SearchInput__icon-wrapper {
+  margin-left: auto;
+  padding-left: 8px;
+}
+
+.SearchInput__icon-wrapper:hover {
+  cursor: pointer;
+}
+
+.SearchInput__icon-wrapper:hover .SearchInput__icon {
+  color: orange;
+}
+
+.SearchInput__icon {
+  color: gray;
+  transition: all 100ms ease-in;
+}
+
+.SearchInput.focused .SearchInput__icon {
+  color: black;
+}
+
+.Counters {
+  font-family: sans-serif;
+  font-size: 28px;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Counters__main {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.Counters__section {
+  padding: 32px 16px;
+  margin: 12px 0;
+  border-radius: 4px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 35x rgba(0, 0, 0, 0.25);
+}
+
+.Counters__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 33.33%;
+  font-size: 18px;
+}
+
+.Counters__button {
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 0 8px;
+  font-weight: 700;
+  background: white;
+  border: 1px solid black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.Search {
+  /* background: #cacada; */
+  display: flex;
+  font-family: sans-serif;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.SearchWidget {
+  background: #fff;
+  border-radius: 4px;
+  padding: 16px 12px;
+  width: 500px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.SearchResults__empty {
+  padding: 16px 12px;
+}
+
+.SearchInput {
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  display: flex;
+  min-width: 320px;
+  padding: 8px;
+  transition: all 100ms ease-in;
+  margin-bottom: 16px;
+}
+
+.SearchInput.focused {
+  border: 1px solid black;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.SearchInput__input {
+  border: none;
+  font-size: 24px;
+  height: 32px;
+  width: 100%;
+}
+
+.SearchInput__icon-wrapper {
+  margin-left: auto;
+  padding-left: 8px;
+  pointer-events: none;
+}
+
+.SearchInput__icon {
+  color: gray;
+  transition: all 100ms ease-in;
+}
+
+.SearchInput.focused .SearchInput__icon {
+  color: black;
+}
+
+.ResultCard {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.ResultCard:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.ResultCard:last-of-type {
+  margin-bottom: 0;
+}
+
+.ResultCard__content {
+  width: 85%;
+}
+
+.ResultCard__header {
+  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.ResultCard__icons {
+  position: absolute;
+  top: 18px;
+  right: 12px;
+}
+
+.ResultCard__beer {
+  color: #000;
+}
+
+.ResultCard:hover .ResultCard__beer {
+  color: #e8ae27;
+}
+
+.ResultCard__burger {
+  color: #000;
+  margin-right: 12px;
+}
+
+.ResultCard:hover .ResultCard__burger {
+  color: #694f12;
+}
+
+.MapView__input {
+  margin: 24px 0;
+}
+
+.AppointmentForm {
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+  min-width: 360px;
+  max-width: 480px;
+  width: 100%;
+  padding: 24px;
+}
+
+.AppointmentForm__header {
+  color: white;
+  margin-bottom: 16px;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.AppointmentForm__div {
+  margin-bottom: 20px;
+}
+
+.AppointmentForm__div:nth-of-type(5) {
+  margin-bottom: 0;
+}
+
+.AppointmentForm__div--btns {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  padding: 8px 0;
+  width: 75%;
+}
+
+.AppointmentForm__label {
+  color: black;
+  font-size: 0.85rem;
+  font-weight: lighter;
+  display: block;
+  text-align: left;
+}
+
+.AppointmentForm__input {
+  border-radius: 4px;
+  border-style: solid;
+  font-size: 1.05rem;
+  padding: 12px;
+  width: 100%;
+}
+
+.AppointmentForm__input:focus {
+  border-color: salmon;
+}
+
+.AppointmentForm__button {
+  border-radius: 4px;
+  border-style: solid;
+  font-size: 1.15rem;
+  padding: 8px 12px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.AppointmentForm__button[type="reset"] {
+  background: white;
+  border-color: lightgrey;
+  color: grey;
+  cursor: pointer;
+  transition: all 85ms ease-in;
+}
+
+.AppointmentForm__button[type="reset"]:hover {
+  background: white;
+  border-color: salmon;
+  color: black;
+  cursor: pointer;
+  transition: all 85ms ease-in;
+}
+
+.AppointmentForm__button[type="submit"] {
+  background: white;
+  border-color: lightsalmon;
+  color: lightsalmon;
+  cursor: pointer;
+  transition: all 85ms ease-in;
+}
+
+.AppointmentForm__button[type="submit"]:hover {
+  background: lightsalmon;
+  border-color: salmon;
+  color: white;
+  cursor: pointer;
 }
