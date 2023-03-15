@@ -5,17 +5,13 @@ describe("AppointmentForm", () => {
   it("submits the form with correct data", () => {
     render(<AppointmentForm />);
 
-    const nameInput = screen.getByLabelText(/name/i);
-    const dateInput = screen.getByLabelText(/date/i);
-    const timeInput = screen.getByLabelText(/time/i);
-
-    fireEvent.change(nameInput, {
+    fireEvent.change(screen.getByLabelText(/name/i), {
       target: { value: "John Doe" },
     });
-    fireEvent.change(dateInput, {
+    fireEvent.change(screen.getByLabelText(/date/i), {
       target: { value: "2022-01-01" },
     });
-    fireEvent.change(timeInput, {
+    fireEvent.change(screen.getByLabelText(/time/i), {
       target: { value: "14:00" },
     });
     fireEvent.click(screen.getByText(/submit/i));
